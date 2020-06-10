@@ -20559,6 +20559,11 @@
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Account\\Login.cshtml",
       "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Home\\About.cshtml",
+      "TargetPath": "Views\\Home\\About.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

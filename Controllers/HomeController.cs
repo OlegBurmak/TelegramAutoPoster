@@ -13,13 +13,22 @@ namespace TAPoster.Controllers
     public class HomeController : Controller
     {
         
+        
+        private ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         [Authorize]
         public IActionResult Index() => View();
 
+        [Authorize]
         public IActionResult About()
         {
-            return Content("For All");
+            User currentUser = _context.Users.FirstOrDefault(u => u.Name == User.Identity.Name);
+            return View(currentUser);
         }
     }
 }

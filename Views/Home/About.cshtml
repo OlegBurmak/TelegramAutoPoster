@@ -1,0 +1,25 @@
+@model User
+
+<h2>Информация</h2>
+
+<div>
+    <p>@Model.Name - Name</p>
+    <p>@Model.Email - Email</p>
+    <p>@Model.Password - Password</p>
+    <p>@Model.UserId - UserId</p>
+
+    <p>User Settings: </p>
+
+    @if(Model.UserSetting != null)
+    {
+        <p>@Model.UserSetting.TelegramToken - TToken</p>
+        <p>@Model.UserSetting.VkToken - VToken</p>
+        <p>@Model.UserSetting.TelegramGroup - TGroup</p>
+        <p>@Model.UserSetting.UserId - UId</p>
+        <p>@Model.UserSetting.UserSettingId - USId</p>
+        <p>@Model.UserSetting.VkApiVersion - VkApiVersion</p>
+    }else{
+        <p>Empty</p>
+    }
+
+</div>
