@@ -33,8 +33,11 @@ namespace TAPoster
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Register");
                 });
 
+            
             services.AddDbContext<ApplicationDbContext>(option => 
                 option.UseSqlServer(Configuration["Data:TAPoster:ConnectionString"]));
+            services.AddTransient<IUserRepository, EFUserRepository>();
+
             services.AddControllersWithViews();
         }
 

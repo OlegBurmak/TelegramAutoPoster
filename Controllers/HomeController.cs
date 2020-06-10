@@ -14,9 +14,9 @@ namespace TAPoster.Controllers
     {
         
         
-        private ApplicationDbContext _context;
+        private IUserRepository _context;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(IUserRepository context)
         {
             _context = context;
         }

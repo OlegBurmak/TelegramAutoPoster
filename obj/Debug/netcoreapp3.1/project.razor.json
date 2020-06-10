@@ -20541,6 +20541,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Account\\EditSetting.cshtml",
+      "TargetPath": "Views\\Account\\EditSetting.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

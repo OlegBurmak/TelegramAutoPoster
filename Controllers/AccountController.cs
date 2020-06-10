@@ -11,9 +11,9 @@ namespace TAPoster.Controllers
 {
     public class AccountController : Controller
     {
-        private ApplicationDbContext _context;
+        private IUserRepository _context;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(IUserRepository context)
         {
             _context = context;
         }
@@ -62,8 +62,8 @@ namespace TAPoster.Controllers
                         Password = model.Password
                     };
 
-                    _context.Users.Add(user);
-                    await _context.SaveChangesAsync();
+                    _context.Add(user);
+                    await _context.SaveAsync();
 
                     await Authenticate(user);
 
@@ -80,6 +80,30 @@ namespace TAPoster.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
+        }
+
+        public async Task<IActionResult> EditSetting(UserSettingAddModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                User user = await _context.Users.FirstOrDefaultAsync(u => 
+                    u.Name == User.Identity.Name);
+                
+                user.UserSetting = new UserSetting
+                {
+                    VkToken = model.VkToken,
+                    VkApiVersion = model.VkApiVersion,
+                    TelegramGroup = model.TelegramGroup,
+                    TelegramToken = model.TelegramToken
+                };
+
+                await _context.EditSettingAsync(user);
+                await _context.SaveAsync();
+                
+                return RedirectToAction("About", "Home");
+
+            }
+            return View(model);
         }
 
         private async Task Authenticate(User user)

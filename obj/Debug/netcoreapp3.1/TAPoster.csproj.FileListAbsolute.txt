@@ -70,3 +70,4 @@ D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Microsoft.EntityFram
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Home\About.cshtml.g.cs
+D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Account\EditSetting.cshtml.g.cs
