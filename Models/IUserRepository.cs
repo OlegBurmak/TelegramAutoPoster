@@ -9,5 +9,7 @@ namespace TAPoster.Models
         void Add(User user);
         Task SaveAsync();
         Task EditSettingAsync(User user);
+
+        void AddPostSettingAsync(User user);
     }
 }

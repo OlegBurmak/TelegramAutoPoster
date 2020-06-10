@@ -1,0 +1,28 @@
+@model PostSettingModel
+
+
+<h2>Добавить настройку постинга</h2>
+
+<form asp-action="AddPostSetting" asp-controller="Post" asp-antiforgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div class="form-group">
+            <label asp-for="GroupUrl">Введите GroupUrl</label>
+            <input type="text" asp-for="GroupUrl" />
+            <span asp-validation-for="GroupUrl" ></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostCount">Введите PostCount</label>
+            <input type="text" asp-for="PostCount" />
+            <span asp-validation-for="PostCount" ></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostFilter">Введите PostFilter</label>
+            <input type="text" asp-for="PostFilter" />
+            <span asp-validation-for="PostFilter" ></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Добавить" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</form>

@@ -20521,6 +20521,11 @@
   "RootNamespace": "TAPoster",
   "Documents": [
     {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Post\\AddPostSetting.cshtml",
+      "TargetPath": "Views\\Post\\AddPostSetting.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"

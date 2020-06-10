@@ -82,6 +82,10 @@ namespace TAPoster.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        [HttpGet]
+        public IActionResult EditSetting() => View();
+
+        [HttpPost]
         public async Task<IActionResult> EditSetting(UserSettingAddModel model)
         {
             if(ModelState.IsValid)

@@ -19,6 +19,11 @@ namespace TAPoster.Models
         {
             _context.Add(user);
         }
+        
+        public void AddPostSettingAsync(User user)
+        {
+            _context.AttachRange(user.PostSettings);
+        }
 
         public async Task SaveAsync()
         {
@@ -29,7 +34,7 @@ namespace TAPoster.Models
         {
             if(user.UserSetting == null)
             {
-                _context.AttachRange(user.UserSetting);
+                _context.Attach(user.UserSetting);
             }else{
                 User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
                 currentUser.UserSetting = user.UserSetting;
