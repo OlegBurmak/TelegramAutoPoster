@@ -1,0 +1,6 @@
+﻿@using System.Security.Claims
+ 
+@foreach(var claim in User.Claims.ToList())
+{
+    <p>@claim.Type : @claim.Value</p>
+}
