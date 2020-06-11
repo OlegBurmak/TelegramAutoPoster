@@ -8,6 +8,15 @@
     <h5 class="card-title">@Model.Url</h5>
     <p class="card-text">@Model.Text</p>
     <p class="card-text">@Model.Date - Дата</p>
-    <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
+    <form asp-action="PostTelegram" asp-controller="Post" method="post">
+        <input type="hidden" asp-for="Text" />
+        <input type="hidden" asp-for="Url" />
+        <input type="hidden" asp-for="PostType" />
+        <input type="hidden" asp-for="Date" />
+        <input type="hidden" asp-for="TypeAttachment" />
+        <button type="submit" class="primary-btn">
+            Запостить
+        </button>
+    </form>
   </div>
 </div>

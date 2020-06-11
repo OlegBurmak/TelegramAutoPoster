@@ -25,6 +25,15 @@ namespace TAPoster.Controllers
             return View(items);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> PostTelegram(VkPostItem postItem, TelegramPoster poster)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            await poster.SendPost(postItem, user.UserSetting.TelegramToken, user.UserSetting.TelegramGroup);
+
+            return RedirectToAction(nameof(Posts));
+        } 
+
 
         [HttpGet]
         public IActionResult AddPostSetting() => View();

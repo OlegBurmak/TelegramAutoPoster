@@ -75,3 +75,4 @@ D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\Add
 D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\Posts.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Shared\PostsSummary.cshtml.g.cs
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
