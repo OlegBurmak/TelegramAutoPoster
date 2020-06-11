@@ -20531,6 +20531,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Shared\\PostsSummary.cshtml",
+      "TargetPath": "Views\\Shared\\PostsSummary.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -20553,6 +20558,11 @@
     {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Post\\Posts.cshtml",
+      "TargetPath": "Views\\Post\\Posts.cshtml",
       "FileKind": "mvc"
     },
     {

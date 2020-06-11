@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZVpdn4jSCjbfxs6ClvyG4xQNwok6InUU3WHrxy6zCQMKuctljFVZGqgOlUr8AU655d/G2ofvIuiAlLgkVeOgRg==",
+  "dgSpecHash": "cxx8r7m1BU7ASF+SzVXJqw2gXs3KODqCCujNLbclGu/HNdEfmNHL4QNFOtp0xN2jK1M0Umf3f9Cf7klQuNMPdg==",
   "success": true,
   "projectFilePath": "D:\\C#Projects\\ASP.NET Core\\TAPoster\\TAPoster.csproj",
   "expectedPackageFiles": [
@@ -29,6 +29,7 @@
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Lolz\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TAPoster.Models;
+using TAPoster.PosterLogic;
 
 namespace TAPoster
 {
@@ -37,7 +38,8 @@ namespace TAPoster
             services.AddDbContext<ApplicationDbContext>(option => 
                 option.UseSqlServer(Configuration["Data:TAPoster:ConnectionString"]));
             services.AddTransient<IUserRepository, EFUserRepository>();
-
+            
+            services.AddTransient<VkWall>();
             services.AddControllersWithViews();
         }
 

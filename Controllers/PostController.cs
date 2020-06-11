@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TAPoster.Models;
+using TAPoster.PosterLogic;
 
 namespace TAPoster.Controllers
 {
@@ -14,6 +16,15 @@ namespace TAPoster.Controllers
         {
             _context = context;
         }
+
+        public async Task<IActionResult> Posts(VkWall wall)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            List<VkPostItem> items = await wall.GetItemsAsync(user);
+
+            return View(items);
+        }
+
 
         [HttpGet]
         public IActionResult AddPostSetting() => View();
