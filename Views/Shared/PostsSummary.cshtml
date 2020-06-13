@@ -1,5 +1,6 @@
 @model VkPostItem
 
+
 <div class="card">
   <div class="card-header">
     @Model.PostType - Тип поста
@@ -8,15 +9,12 @@
     <h5 class="card-title">@Model.Url</h5>
     <p class="card-text">@Model.Text</p>
     <p class="card-text">@Model.Date - Дата</p>
-    <form asp-action="PostTelegram" asp-controller="Post" method="post">
-        <input type="hidden" asp-for="Text" />
-        <input type="hidden" asp-for="Url" />
-        <input type="hidden" asp-for="PostType" />
-        <input type="hidden" asp-for="Date" />
-        <input type="hidden" asp-for="TypeAttachment" />
-        <button type="submit" class="primary-btn">
-            Запостить
-        </button>
-    </form>
   </div>
+  <input type="hidden" name="Text" />
+  <input type="hidden" name="Url" />
+  <input type="hidden" name="PostType" />
+  <input type="hidden" name="Date" />
+  <input type="hidden" name="TypeAttachment" />
 </div>
+
+

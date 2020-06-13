@@ -21,11 +21,11 @@ namespace TAPoster.PosterLogic
  
             if(postItem.Text != null)
             {
-                await client.SendTextMessageAsync(groupId, postItem.Text);
+                await client.SendTextMessageAsync(groupId, $"{postItem.Text} {postItem.Url}");
             }
             if(postItem.Url != null)
             {
-                await client.SendPhotoAsync(groupId, postItem.Url);
+                //await client.SendPhotoAsync(groupId, postItem.Url);
             }
             
         }

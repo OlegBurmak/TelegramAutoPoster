@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Vp+nwBRJ9n5lcCrtwJ8iHrs7ye0VkHtoLHpF1WMMnsaI8fZyRH/3AggKgTdFnJ+NevLrRoqQ/gYeCAzKKce0pA==",
+  "dgSpecHash": "RzB9obnhxBprmx/Jo56pRe8dQV/N/eb+yScKl7PnRtI/WfVzYNQNucSqHcVJbnupU9Bu4drZGQZWzRonF8TCVA==",
   "success": true,
   "projectFilePath": "D:\\C#Projects\\ASP.NET Core\\TAPoster\\TAPoster.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lolz\\.nuget\\packages\\hangfire.aspnetcore\\1.7.11\\hangfire.aspnetcore.1.7.11.nupkg.sha512",
+    "C:\\Users\\Lolz\\.nuget\\packages\\hangfire.core\\1.7.11\\hangfire.core.1.7.11.nupkg.sha512",
+    "C:\\Users\\Lolz\\.nuget\\packages\\hangfire.sqlserver\\1.7.11\\hangfire.sqlserver.1.7.11.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -65,6 +68,7 @@
     "C:\\Users\\Lolz\\.nuget\\packages\\system.componentmodel.typeconverter\\4.3.0\\system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\system.console\\4.3.0\\system.console.4.3.0.nupkg.sha512",
+    "C:\\Users\\Lolz\\.nuget\\packages\\system.data.sqlclient\\4.4.0\\system.data.sqlclient.4.4.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\Lolz\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",

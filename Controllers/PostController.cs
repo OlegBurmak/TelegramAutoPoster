@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TAPoster.Models;
@@ -11,25 +12,31 @@ namespace TAPoster.Controllers
     {
         
         private IUserRepository _context;
+        private List<VkPostItem> _items;
 
         public PostController(IUserRepository context)
         {
             _context = context;
+            
         }
 
         public async Task<IActionResult> Posts(VkWall wall)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
-            List<VkPostItem> items = await wall.GetItemsAsync(user);
+            _items = await wall.GetItemsAsync(user);
 
-            return View(items);
-        }
+            return View(_items);
+        } 
 
         [HttpPost]
-        public async Task<IActionResult> PostTelegram(VkPostItem postItem, TelegramPoster poster)
+        public async Task<IActionResult> PostTelegram(List<VkPostItem> postItems, TelegramPoster poster)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
-            await poster.SendPost(postItem, user.UserSetting.TelegramToken, user.UserSetting.TelegramGroup);
+            System.Console.WriteLine("Yes");
+            foreach(var item in postItems)
+            {
+                BackgroundJob.Enqueue(() => poster.SendPost(item, user.UserSetting.TelegramToken, user.UserSetting.TelegramGroup));
+            }
 
             return RedirectToAction(nameof(Posts));
         } 

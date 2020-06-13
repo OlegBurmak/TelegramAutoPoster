@@ -1,8 +1,28 @@
 @model List<VkPostItem>
 
-
-@foreach(var item in Model)
-{
-    @await Html.PartialAsync("PostsSummary", item)
-}
+<form asp-action="PostTelegram" asp-controller="Post" method="post">
+    @for(int i = 0; i < @Model.Count; i++)
+    {
+        //@await Html.PartialAsync("PostsSummary", item)
+        
+        <div class="card">
+        <div class="card-header">
+            @Model[i].PostType - Тип поста
+        </div>
+            <div class="card-body">
+                <h5 class="card-title">@Model[i].Url</h5>
+                <p class="card-text">@Model[i].Text</p>
+                <p class="card-text">@Model[i].Date - Дата</p>
+            </div>
+            <input type="hidden" asp-for="@Model[i].Text" />
+            <input type="hidden" asp-for="@Model[i].Url" />
+            <input type="hidden" asp-for="@Model[i].PostType" />
+            <input type="hidden" asp-for="@Model[i].Date" />
+            <input type="hidden" asp-for="@Model[i].TypeAttachment" />
+        </div>
+    }
+    <button type="submit" class="primary-btn">
+    Запостить
+    </button>
+</form>
 

@@ -76,3 +76,17 @@ D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\Posts.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Shared\PostsSummary.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Hangfire.AspNetCore.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Hangfire.Core.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\Hangfire.SqlServer.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\es\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\fa\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\nl\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\pt-BR\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\pt-PT\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\pt\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\zh-TW\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\zh\Hangfire.Core.resources.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
