@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Hangfire;
@@ -24,7 +25,6 @@ namespace TAPoster.Controllers
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
             _items = await wall.GetItemsAsync(user);
-
             return View(_items);
         } 
 
@@ -33,11 +33,7 @@ namespace TAPoster.Controllers
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
             System.Console.WriteLine("Yes");
-            foreach(var item in postItems)
-            {
-                BackgroundJob.Enqueue(() => poster.SendPost(item, user.UserSetting.TelegramToken, user.UserSetting.TelegramGroup));
-            }
-
+            CreateBackgroudJob(user, postItems, poster);
             return RedirectToAction(nameof(Posts));
         } 
 
@@ -74,6 +70,17 @@ namespace TAPoster.Controllers
                 
             }
             return View(model);
+        }
+
+        private void CreateBackgroudJob(User user, List<VkPostItem> postItems, TelegramPoster poster)
+        {
+            var timeDelay = TimeSpan.FromSeconds(0);
+            foreach(var item in postItems)
+            {
+                BackgroundJob.Schedule(() => poster.SendPost(item, user.UserSetting.TelegramToken, 
+                    user.UserSetting.TelegramGroup), timeDelay);
+                timeDelay += TimeSpan.FromSeconds(30);
+            }
         }
 
     }
