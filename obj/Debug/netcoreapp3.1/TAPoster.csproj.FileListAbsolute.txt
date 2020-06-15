@@ -90,3 +90,5 @@ D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\zh-TW\Hangfire.Core.
 D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\zh\Hangfire.Core.resources.dll
 D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard2.0\System.Data.SqlClient.dll
 D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
+D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\NavigationTopMenu\Default.cshtml.g.cs
+D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NavMenuSummary.cshtml.g.cs

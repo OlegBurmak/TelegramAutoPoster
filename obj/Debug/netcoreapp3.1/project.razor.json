@@ -17868,6 +17868,31 @@
         }
       },
       {
+        "Kind": "MVC.ViewComponent",
+        "Name": "__Generated__NavigationTopMenuViewComponentTagHelper",
+        "AssemblyName": "TAPoster",
+        "Documentation": null,
+        "TagOutputHint": null,
+        "CaseSensitive": false,
+        "TagMatchingRules": [
+          {
+            "TagName": "vc:navigation-top-menu",
+            "ParentTag": null,
+            "TagStructure": 0,
+            "Attributes": [],
+            "Diagnostics": []
+          }
+        ],
+        "BoundAttributes": [],
+        "AllowedChildTags": [],
+        "Diagnostics": [],
+        "Metadata": {
+          "Runtime.Name": "ITagHelper",
+          "Common.TypeName": "__Generated__NavigationTopMenuViewComponentTagHelper",
+          "MVC.ViewComponent.Name": "NavigationTopMenu"
+        }
+      },
+      {
         "Kind": "Components.Bind",
         "Name": "Bind",
         "AssemblyName": "Microsoft.AspNetCore.Components",
@@ -20581,8 +20606,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Shared\\Components\\NavigationTopMenu\\Default.cshtml",
+      "TargetPath": "Views\\Shared\\Components\\NavigationTopMenu\\Default.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Home\\About.cshtml",
       "TargetPath": "Views\\Home\\About.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Shared\\NavMenuSummary.cshtml",
+      "TargetPath": "Views\\Shared\\NavMenuSummary.cshtml",
       "FileKind": "mvc"
     }
   ],
