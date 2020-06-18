@@ -26,8 +26,15 @@ using TAPoster.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\C#Projects\ASP.NET Core\TAPoster\Views\_ViewImports.cshtml"
+using TAPoster.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"169a37f9b20af3ce166067f65713481e57cf1ad4", @"/Views/Shared/PostsSummary.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24ae2edc7228bd142bc1963e7dc54780e2d304b4", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"39e0e10293da32f400c1461819c8cbe2df7563fa", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_PostsSummary : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<VkPostItem>
     {
         #pragma warning disable 1998

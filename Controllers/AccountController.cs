@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TAPoster.Models;
+using TAPoster.Models.ViewModels;
 
 namespace TAPoster.Controllers
 {
@@ -83,7 +84,10 @@ namespace TAPoster.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditSetting() => View();
+        public async Task<IActionResult> EditSetting()
+        {
+            return View(await GetUserViewModel());
+        }
 
         [HttpPost]
         public async Task<IActionResult> EditSetting(UserSettingAddModel model)
@@ -107,7 +111,25 @@ namespace TAPoster.Controllers
                 return RedirectToAction("About", "Home");
 
             }
-            return View(model);
+            return View(await GetUserViewModel());
+        }
+
+        private async Task<UserViewModel> GetUserViewModel()
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => 
+                    u.Name == User.Identity.Name);
+            UserViewModel model = new UserViewModel()
+            {
+                User = user,
+                UserSetting = new UserSettingAddModel
+                {
+                    VkToken = user.UserSetting.VkToken,
+                    VkApiVersion = user.UserSetting.VkApiVersion,
+                    TelegramToken = user.UserSetting.TelegramToken,
+                    TelegramGroup = user.UserSetting.TelegramGroup
+                }
+            };
+            return model;
         }
 
         private async Task Authenticate(User user)

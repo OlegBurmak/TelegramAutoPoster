@@ -1,48 +1,61 @@
 @model User
 
-<h2>Информация</h2>
+<div id="wrapper">
+    @await Html.PartialAsync("NavMenuSummary") 
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        @await Component.InvokeAsync("NavigationTopMenu")
 
-<div>
-    <p>@Model.Name - Name</p>
-    <p>@Model.Email - Email</p>
-    <p>@Model.Password - Password</p>
-    <p>@Model.UserId - UserId</p>
+        <div class="container-fluid">
 
-    <br>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group" role="group" aria-label="First group">
+                            <a asp-action="AddPostSetting" asp-controller="Post" class="btn btn-success">Add</a>
+                            <a asp-action="Posts" asp-controller="Post" class="btn btn-success">Start</a>
+                        </div>
+                        <div>
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>Group Url</th>
+                                <th>Post Count</th>
+                                <th>Post Filter</th>
+                                <th>Settings</th>
+                                <th>Post</th>
+                            </tr>
+                            </thead>
+                            <tfoot>
+                            <tr>
+                                <th>Group Url</th>
+                                <th>Post Count</th>
+                                <th>Post Filter</th>
+                                <th>Settings</th>
+                                <th>Post</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach(var item in Model.PostSettings)
+                                {
+                                    @await Html.PartialAsync("PostItemSummary", item)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
-    <p>User Settings: </p>
+        </div>
 
-    @if(Model.UserSetting != null)
-    {
-        <p>@Model.UserSetting.TelegramToken - TToken</p>
-        <p>@Model.UserSetting.VkToken - VToken</p>
-        <p>@Model.UserSetting.TelegramGroup - TGroup</p>
-        <p>@Model.UserSetting.UserId - UId</p>
-        <p>@Model.UserSetting.UserSettingId - USId</p>
-        <p>@Model.UserSetting.VkApiVersion - VkApiVersion</p>
-    }else{
-        <p>Empty</p>
-    }
-    <a asp-action="EditSetting" asp-controller="Account" >Изменить пользовательские настройки</a>
-
-    <br>
-
-    <p>Post Settings</p>
-
-    @if(Model.PostSettings.Count > 0)
-    {
-        @foreach (var item in Model.PostSettings)
-        {
-            <p>@item.GroupUrl - VkGroup Url </p>
-            <p>@item.PostCount - Count of post </p>
-            <p>@item.PostFilter - Filter </p>
-            <p>@item.PostSettingId - SettingId </p>
-            <p>@item.UserId - UserId </p>
-        }
-    }else{
-        <p>List Empty</p>
-    }
-
-    <a asp-action="AddPostSetting" asp-controller="Post" >Добавить настройку постинга</a>
-
+      </div>
+    </div>
 </div>

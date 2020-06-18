@@ -1,32 +1,35 @@
-@model UserSettingAddModel
+@model UserViewModel
 
-<h2>Добавить пользовательские настройки</h2>
-
-<form asp-action="EditSetting" asp-controller="Account" asp-antiforgery="true">
-    <div class="validation" asp-validation-summary="ModelOnly"></div>
-    <div>
-        <div class="form-group">
-            <label asp-for="VkToken">Введите VkToken</label>
-            <input type="text" asp-for="VkToken" />
-            <span asp-validation-for="VkToken" ></span>
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a href="" data-target="#user" data-toggle="tab" class="nav-link active">User</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" data-target="#usersetting" data-toggle="tab" class="nav-link">UserSetting</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active" id="user">
+                    <h5 class="mb-3">User Profile</h5>
+                    
+                </div>
+                <div class="tab-pane" id="usersetting">
+                    <h5 class="mb-3">User Setting Profile</h5>
+                    @await Html.PartialAsync("UserSettingModelSummary", @Model.UserSetting)
+                    
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label asp-for="VkApiVersion">Введите VkApiVersion</label>
-            <input type="text" asp-for="VkApiVersion" />
-            <span asp-validation-for="VkApiVersion" ></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="TelegramToken">Введите TelegramToken</label>
-            <input type="text" asp-for="TelegramToken" />
-            <span asp-validation-for="TelegramToken" ></span>
-        </div>
-        <div class="form-group">
-            <label asp-for="TelegramGroup">Введите TelegramGroup</label>
-            <input type="text" asp-for="TelegramGroup" />
-            <span asp-validation-for="TelegramGroup" ></span>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Изменить" class="btn btn-outline-dark" />
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+            <h6 class="mt-2">Upload a different photo</h6>
+            <label class="custom-file">
+                <input type="file" id="file" class="custom-file-input">
+                <span class="custom-file-control">Choose file</span>
+            </label>
         </div>
     </div>
-</form>
+</div>
