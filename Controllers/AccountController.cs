@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TAPoster.Models;
@@ -77,18 +78,21 @@ namespace TAPoster.Controllers
             return View(model);
         }
 
+        [Authorize]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> EditSetting()
         {
             return View(await GetUserViewModel());
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> EditSetting(UserSettingAddModel model)
         {
@@ -127,7 +131,8 @@ namespace TAPoster.Controllers
                     VkToken = user.UserSetting.VkToken,
                     VkApiVersion = user.UserSetting.VkApiVersion,
                     TelegramToken = user.UserSetting.TelegramToken,
-                    TelegramGroup = user.UserSetting.TelegramGroup
+                    TelegramGroup = user.UserSetting.TelegramGroup,
+                    Deley = user.UserSetting.Deley
                 }
             };
             return model;

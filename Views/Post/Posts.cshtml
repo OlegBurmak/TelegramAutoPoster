@@ -12,7 +12,7 @@
 
         <div class="container-fluid">
           
-            @await Html.PartialAsync("CardsPostSummary")
+            @await Html.PartialAsync("CardsPostSummary", @Model)
 
             <div class="card-body">
                 <form asp-action="PostTelegram" asp-controller="Post" method="post">

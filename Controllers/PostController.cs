@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Hangfire;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TAPoster.Models;
@@ -10,6 +11,7 @@ using TAPoster.PosterLogic;
 
 namespace TAPoster.Controllers
 {
+    [Authorize]
     public class PostController : Controller
     {
         
@@ -32,12 +34,6 @@ namespace TAPoster.Controllers
             return View(_items);
         }
 
-        [HttpPost]
-        public IActionResult EditPost(VkPostItem item)
-        {
-            _items.Remove(item);
-            return RedirectToAction(nameof(Posts));
-        }
 
         [HttpPost]
         public async Task<IActionResult> PostTelegram(List<VkPostItem> postItems, TelegramPoster poster)
