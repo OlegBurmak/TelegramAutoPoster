@@ -16,5 +16,8 @@ namespace TAPoster.Models
         [Required(ErrorMessage = "Не указан TelegramGroup ID")]
         public int TelegramGroup { get; set; }
 
+        [Required(ErrorMessage = "Не указана задержка постинга")]
+        public int Deley { get; set; }
+
     }
 }

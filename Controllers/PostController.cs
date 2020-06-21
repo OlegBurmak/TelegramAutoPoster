@@ -66,7 +66,6 @@ namespace TAPoster.Controllers
                         GroupUrl = model.GroupUrl,
                         PostCount = model.PostCount,
                         PostFilter = model.PostFilter,
-                        PostDeley = model.PostDeley
                     });
 
                     _context.AddPostSettingAsync(user);
@@ -123,7 +122,7 @@ namespace TAPoster.Controllers
             {
                 BackgroundJob.Schedule(() => poster.SendPost(item, user.UserSetting.TelegramToken, 
                     user.UserSetting.TelegramGroup), timeDelay);
-                timeDelay += TimeSpan.FromSeconds(30);
+                timeDelay += TimeSpan.FromMinutes(user.UserSetting.Deley);
             }
         }
 

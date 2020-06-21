@@ -102,7 +102,8 @@ namespace TAPoster.Controllers
                     VkToken = model.VkToken,
                     VkApiVersion = model.VkApiVersion,
                     TelegramGroup = model.TelegramGroup,
-                    TelegramToken = model.TelegramToken
+                    TelegramToken = model.TelegramToken,
+                    Deley = model.Deley
                 };
 
                 await _context.EditSettingAsync(user);

@@ -15,9 +15,6 @@ namespace TAPoster.Models
         [Required(ErrorMessage = "Не указан PostFilter")]
         public string PostFilter { get; set; }
 
-        [Required(ErrorMessage = "Не указана задержка постинга")]
-        public int PostDeley { get; set; }
-
         public int PostItemComment { get; set; }
         public int PostItemLike { get; set; }
         public int PostItemRepost { get; set; }

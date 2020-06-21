@@ -9,6 +9,8 @@ namespace TAPoster.Models
         public string TelegramToken { get; set; }
         public int TelegramGroup { get; set; }
 
+        public int Deley { get; set; }
+
         public int UserId { get; set; }
         public User User { get; set; }
     }
