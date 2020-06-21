@@ -10,6 +10,8 @@ namespace TAPoster.Models
         Task SaveAsync();
         Task EditSettingAsync(User user);
 
+        void DeletePostSetting(User user, PostSetting postSetting);
+        void EditPostSetting(User user, PostSetting postSetting);
         void AddPostSettingAsync(User user);
     }
 }

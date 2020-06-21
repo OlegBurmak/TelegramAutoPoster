@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
@@ -54,7 +55,8 @@ namespace TAPoster.Controllers
                     { 
                         GroupUrl = model.GroupUrl,
                         PostCount = model.PostCount,
-                        PostFilter = model.PostFilter
+                        PostFilter = model.PostFilter,
+                        PostDeley = model.PostDeley
                     });
 
                     _context.AddPostSettingAsync(user);
@@ -70,6 +72,38 @@ namespace TAPoster.Controllers
                 
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditPostSetting(int PostSettingId)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            PostSetting postSetting = user.PostSettings.FirstOrDefault(p => p.PostSettingId == PostSettingId);
+
+            return View(postSetting);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditPostSetting(PostSetting model)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+
+            _context.EditPostSetting(user, model);
+            await _context.SaveAsync();
+
+
+            return RedirectToAction("About", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeletePostSetting(int PostSettingId)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            PostSetting currentPostSetting = user.PostSettings.FirstOrDefault(p => p.PostSettingId == PostSettingId);
+            _context.DeletePostSetting(user, currentPostSetting);
+            await _context.SaveAsync();
+
+            return RedirectToAction("About", "Home");
         }
 
         private void CreateBackgroudJob(User user, List<VkPostItem> postItems, TelegramPoster poster)

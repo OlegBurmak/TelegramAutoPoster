@@ -1,35 +1,51 @@
 @model UserViewModel
 
-<div class="container">
-    <div class="row my-2">
-        <div class="col-lg-8 order-lg-2">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="" data-target="#user" data-toggle="tab" class="nav-link active">User</a>
-                </li>
-                <li class="nav-item">
-                    <a href="" data-target="#usersetting" data-toggle="tab" class="nav-link">UserSetting</a>
-                </li>
-            </ul>
-            <div class="tab-content py-4">
-                <div class="tab-pane active" id="user">
-                    <h5 class="mb-3">User Profile</h5>
-                    
+
+<div id="wrapper">
+    @await Html.PartialAsync("NavMenuSummary") 
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        @await Component.InvokeAsync("NavigationTopMenu")
+
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="container">
+            <div class="row my-2">
+                <div class="col-lg-8 order-lg-2">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="" data-target="#user" data-toggle="tab" class="nav-link active">User</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#usersetting" data-toggle="tab" class="nav-link">UserSetting</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content py-4">
+                        <div class="tab-pane active" id="user">
+                            <h5 class="mb-3">User Profile</h5>
+                            @await Html.PartialAsync("UserModelSummary", @Model.User)
+                        </div>
+                        <div class="tab-pane" id="usersetting">
+                            <h5 class="mb-3">User Setting Profile</h5>
+                            @await Html.PartialAsync("UserSettingModelSummary", @Model.UserSetting)
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="tab-pane" id="usersetting">
-                    <h5 class="mb-3">User Setting Profile</h5>
-                    @await Html.PartialAsync("UserSettingModelSummary", @Model.UserSetting)
-                    
+                <div class="col-lg-4 order-lg-1 text-center">
+                    <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
+                    <h6 class="mt-2">Upload a different photo</h6>
+                    <label class="custom-file">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control">Choose file</span>
+                    </label>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 order-lg-1 text-center">
-            <img src="//placehold.it/150" class="mx-auto img-fluid img-circle d-block" alt="avatar">
-            <h6 class="mt-2">Upload a different photo</h6>
-            <label class="custom-file">
-                <input type="file" id="file" class="custom-file-input">
-                <span class="custom-file-control">Choose file</span>
-            </label>
         </div>
+
+      </div>
     </div>
 </div>

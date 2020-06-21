@@ -1,4 +1,4 @@
-@model PostSettingModel
+@model PostSetting
 
 
 <div class="content">
@@ -6,12 +6,15 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">Add Post Setting</h5>
+                    <h5 class="title">Edit Post Setting</h5>
                 </div>
                 <div class="card-body">
-                    <form asp-action="AddPostSetting" asp-controller="Post" asp-antiforgery="true">
+                    <form asp-action="EditPostSetting" asp-controller="Post" asp-antiforgery="true">
                         <div class="validation" asp-validation-summary="ModelOnly"></div>
                         <div>
+                            <div class="form-group">
+                                <input type="hidden" asp-for="PostSettingId" />
+                            </div>
                             <div class="form-group">
                                 <label asp-for="GroupUrl">Введите GroupUrl</label>
                                 <input type="text" asp-for="GroupUrl" />
@@ -33,7 +36,7 @@
                                 <span asp-validation-for="PostDeley" ></span>
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Add" class="btn btn-outline-dark" />
+                                <input type="submit" value="Edit" class="btn btn-outline-dark" />
                             </div>
                         </div>
                     </form>

@@ -25,6 +25,20 @@ namespace TAPoster.Models
             _context.AttachRange(user.PostSettings);
         }
 
+        public void EditPostSetting(User user, PostSetting postSetting)
+        {
+            User currentUser = _context.Users.FirstOrDefault(u => u.Name == user.Name);
+            PostSetting currentPostSetting = currentUser.PostSettings.FirstOrDefault(p => p.PostSettingId == postSetting.PostSettingId);
+            currentPostSetting.UpdateModel(postSetting);
+        }
+
+        public void DeletePostSetting(User user, PostSetting postSetting)
+        {
+            User currentUser = _context.Users.FirstOrDefault(u => u.Name == user.Name);
+            PostSetting currentPostSetting = currentUser.PostSettings.FirstOrDefault(p => p.PostSettingId == postSetting.PostSettingId);
+            currentUser.PostSettings.Remove(currentPostSetting);
+        }
+
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();

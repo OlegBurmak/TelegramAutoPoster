@@ -4,6 +4,12 @@
     <td>@Model.GroupUrl</td>
     <td>@Model.PostCount</td>
     <td>@Model.PostFilter</td>
-    <td> <a href="#">Delete</a> <a href="#">Update</a> </td>
+    <td>@Model.PostDeley</td>
+    <td> 
+        <a asp-action="EditPostSetting" asp-controller="Post" 
+            asp-route-PostSettingId="@Model.PostSettingId" >Update</a> 
+        <a asp-action="DeletePostSetting" asp-controller="Post"
+            asp-route-PostSettingId="@Model.PostSettingId" >Delete</a> 
+    </td>
     <td></td>
 </tr> 
