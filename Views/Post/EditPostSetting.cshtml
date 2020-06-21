@@ -36,6 +36,26 @@
                                 <span asp-validation-for="PostDeley" ></span>
                             </div>
                             <div class="form-group">
+                                <label asp-for="PostItemComment">Введите количество комментариев</label>
+                                <input type="text" asp-for="PostItemComment" />
+                                <span asp-validation-for="PostItemComment" ></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PostItemLike">Введите количество лайков</label>
+                                <input type="text" asp-for="PostItemLike" />
+                                <span asp-validation-for="PostItemLike" ></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PostItemRepost">Введите количество репостов</label>
+                                <input type="text" asp-for="PostItemRepost" />
+                                <span asp-validation-for="PostItemRepost" ></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PostItemView">Введите количество просмотров</label>
+                                <input type="text" asp-for="PostItemView" />
+                                <span asp-validation-for="PostItemView" ></span>
+                            </div>
+                            <div class="form-group">
                                 <input type="submit" value="Edit" class="btn btn-outline-dark" />
                             </div>
                         </div>

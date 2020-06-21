@@ -20,6 +20,11 @@ namespace TAPoster.PosterLogic
         public string post_type { get; set; }
         public string text { get; set; }
         public List<Attachment> attachments { get; set; }
+        public Counter comments { get; set; }
+        public Counter likes { get; set; }
+        public Counter reposts { get; set; }
+        public Counter views { get; set; }
+
     }
 
     public class Attachment
@@ -39,6 +44,11 @@ namespace TAPoster.PosterLogic
     {
         public string type { get; set; }
         public string url { get; set; }
+    }
+
+    public class Counter
+    {
+        public int count { get; set; }
     }
 
 }

@@ -25,9 +25,19 @@ namespace TAPoster.Controllers
         public async Task<IActionResult> Posts(VkWall wall)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
-            _items = await wall.GetItemsAsync(user);
+            if(_items == null)
+            {
+                _items = await wall.GetItemsAsync(user);
+            }
             return View(_items);
-        } 
+        }
+
+        [HttpPost]
+        public IActionResult EditPost(VkPostItem item)
+        {
+            _items.Remove(item);
+            return RedirectToAction(nameof(Posts));
+        }
 
         [HttpPost]
         public async Task<IActionResult> PostTelegram(List<VkPostItem> postItems, TelegramPoster poster)
