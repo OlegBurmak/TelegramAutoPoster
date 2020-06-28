@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,8 @@ namespace TAPoster.Models
             _context = context;
         }
 
-        public IQueryable<User> Users => _context.Users.Include(s => s.UserSetting).Include(p => p.PostSettings);
+        public IQueryable<User> Users => _context.Users.Include(s => s.UserSetting).Include(p => p.PostSettings)
+                .Include(v => v.VkPostItems);
 
         public void Add(User user)
         {
@@ -37,6 +39,19 @@ namespace TAPoster.Models
             User currentUser = _context.Users.FirstOrDefault(u => u.Name == user.Name);
             PostSetting currentPostSetting = currentUser.PostSettings.FirstOrDefault(p => p.PostSettingId == postSetting.PostSettingId);
             currentUser.PostSettings.Remove(currentPostSetting);
+        }
+
+        public async Task AddPostItemRange(User user, List<VkPostItem> items)
+        {
+            User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
+            currentUser.VkPostItems.AddRange(items);
+        }
+
+
+        public async Task DeletePostItemAsync(User user, int countItems)
+        {
+            User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
+            currentUser.VkPostItems.RemoveRange(0, countItems);
         }
 
         public async Task SaveAsync()

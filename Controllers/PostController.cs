@@ -16,7 +16,6 @@ namespace TAPoster.Controllers
     {
         
         private IUserRepository _context;
-        private List<VkPostItem> _items;
 
         public PostController(IUserRepository context)
         {
@@ -26,22 +25,17 @@ namespace TAPoster.Controllers
 
         public async Task<IActionResult> Posts(VkWall wall)
         {
+            await AddVkPosItems(wall);
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
-            if(_items == null)
-            {
-                _items = await wall.GetItemsAsync(user);
-            }
-            return View(_items);
+            return View(user.VkPostItems);
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> PostTelegram(List<VkPostItem> postItems, TelegramPoster poster)
+        public async Task<IActionResult> PostTelegram(TelegramPoster poster)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
             System.Console.WriteLine("Yes");
-            CreateBackgroudJob(user, postItems, poster);
-            return RedirectToAction(nameof(Posts));
+            await CreateBackgroudJob(user, poster);
+            return RedirectToAction("About", "Home");
         } 
 
 
@@ -111,15 +105,27 @@ namespace TAPoster.Controllers
             return RedirectToAction("About", "Home");
         }
 
-        private void CreateBackgroudJob(User user, List<VkPostItem> postItems, TelegramPoster poster)
+        private async Task CreateBackgroudJob(User user, TelegramPoster poster)
         {
-            var timeDelay = TimeSpan.FromSeconds(0);
-            foreach(var item in postItems)
+            var timeDelay = TimeSpan.FromMinutes(0);
+            int countItems = 0;
+            foreach(var item in user.VkPostItems)
             {
-                BackgroundJob.Schedule(() => poster.SendPost(item, user.UserSetting.TelegramToken, 
-                    user.UserSetting.TelegramGroup), timeDelay);
+                System.Console.WriteLine(item.Text);
+                BackgroundJob.Schedule(() => poster.SendPost(item, user.UserSetting), timeDelay);
                 timeDelay += TimeSpan.FromMinutes(user.UserSetting.Deley);
+                countItems++;
             }
+            await _context.DeletePostItemAsync(user, countItems);
+            await _context.SaveAsync();
+        }
+
+        private async Task AddVkPosItems(VkWall wall)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            List<VkPostItem> items = await wall.GetItemsAsync(user);
+            await _context.AddPostItemRange(user, items);
+            await _context.SaveAsync();
         }
 
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TAPoster.Models
 {
@@ -11,5 +12,6 @@ namespace TAPoster.Models
 
         public UserSetting UserSetting {get; set; }
         public List<PostSetting> PostSettings { get; set; }
+        public List<VkPostItem> VkPostItems { get; set; }
     }
 }

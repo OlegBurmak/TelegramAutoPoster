@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace TAPoster.Models
 {
     public class UserSetting
@@ -11,7 +13,9 @@ namespace TAPoster.Models
 
         public int Deley { get; set; }
 
+        [JsonIgnore]
         public int UserId { get; set; }
+        [JsonIgnore]
         public User User { get; set; }
     }
 }

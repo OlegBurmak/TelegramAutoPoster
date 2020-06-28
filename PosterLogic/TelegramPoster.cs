@@ -10,18 +10,18 @@ namespace TAPoster.PosterLogic
     {
         TelegramBotClient client;
 
-        public async Task SendPost(VkPostItem postItem, string token, int groupId)
+        public async Task SendPost(VkPostItem postItem, UserSetting setting)
         {
             if(client == null)
             {
-                client = new TelegramBotClient(token);
+                client = new TelegramBotClient(setting.TelegramToken);
             }
 
             InputMediaPhoto[] list = { };
  
             if(postItem.Text != null)
             {
-                await client.SendTextMessageAsync(groupId, $"{postItem.Text} {postItem.Url}");
+                await client.SendTextMessageAsync(setting.TelegramGroup, $"{postItem.Text} {postItem.Url}");
             }
             if(postItem.Url != null)
             {
