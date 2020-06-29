@@ -25,8 +25,12 @@ namespace TAPoster.Controllers
 
         public async Task<IActionResult> Posts(VkWall wall)
         {
-            await AddVkPosItems(wall);
+            List<VkPostItem> items = new List<VkPostItem>();
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            if(user.VkPostItems.Count() <= 0)
+            {
+                await AddVkPosItems(wall);
+            }
             return View(user.VkPostItems);
         }
 
@@ -82,6 +86,7 @@ namespace TAPoster.Controllers
             return View(postSetting);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> EditPostSetting(PostSetting model)
         {
@@ -105,6 +110,54 @@ namespace TAPoster.Controllers
             return RedirectToAction("About", "Home");
         }
 
+        [HttpGet]
+        public IActionResult AddPostItem() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> AddPostItem(VkPostItem item)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            await _context.AddPostItem(user, item);
+            await _context.SaveAsync();
+            return RedirectToAction(nameof(Posts));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditPostItem(int postItemId)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            VkPostItem currentPostItem = user.VkPostItems.FirstOrDefault(p => p.VkPostItemId == postItemId);
+
+            return View(currentPostItem);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditPostItem(VkPostItem item)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            await _context.EditPostItem(user, item);
+            await _context.SaveAsync();
+            return RedirectToAction(nameof(Posts));
+        }
+
+        public async Task<IActionResult> DeletePostItem(int postItemId)
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            VkPostItem currentPostItem = user.VkPostItems.FirstOrDefault(p => p.VkPostItemId == postItemId);
+            await _context.DeletePostItem(user, currentPostItem);
+            await _context.SaveAsync();
+            return RedirectToAction(nameof(Posts));
+        }
+
+        public async Task<IActionResult> DeletePostItemAll()
+        {
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Name == User.Identity.Name);
+            await _context.DeletePostItemsAsync(user, user.VkPostItems.Count());
+            await _context.SaveAsync();
+
+            return RedirectToAction("About", "Home");
+        }
+
         private async Task CreateBackgroudJob(User user, TelegramPoster poster)
         {
             var timeDelay = TimeSpan.FromMinutes(0);
@@ -116,7 +169,7 @@ namespace TAPoster.Controllers
                 timeDelay += TimeSpan.FromMinutes(user.UserSetting.Deley);
                 countItems++;
             }
-            await _context.DeletePostItemAsync(user, countItems);
+            await _context.DeletePostItemsAsync(user, countItems);
             await _context.SaveAsync();
         }
 

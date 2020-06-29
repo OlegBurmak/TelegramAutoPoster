@@ -20606,6 +20606,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Post\\EditPostItem.cshtml",
+      "TargetPath": "Views\\Post\\EditPostItem.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Account\\Register.cshtml",
       "TargetPath": "Views\\Account\\Register.cshtml",
       "FileKind": "mvc"
@@ -20633,6 +20638,11 @@
     {
       "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Shared\\UserModelSummary.cshtml",
       "TargetPath": "Views\\Shared\\UserModelSummary.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\C#Projects\\ASP.NET Core\\TAPoster\\Views\\Post\\AddPostItem.cshtml",
+      "TargetPath": "Views\\Post\\AddPostItem.cshtml",
       "FileKind": "mvc"
     },
     {

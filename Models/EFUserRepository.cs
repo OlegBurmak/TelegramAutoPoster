@@ -41,14 +41,33 @@ namespace TAPoster.Models
             currentUser.PostSettings.Remove(currentPostSetting);
         }
 
+        public async Task AddPostItem(User user, VkPostItem item)
+        {
+            User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
+            currentUser.VkPostItems.Add(item);
+        }
+
         public async Task AddPostItemRange(User user, List<VkPostItem> items)
         {
             User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
             currentUser.VkPostItems.AddRange(items);
         }
 
+        public async Task EditPostItem(User user, VkPostItem item)
+        {
+            User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
+            VkPostItem currentPostItem = currentUser.VkPostItems.FirstOrDefault(p => p.VkPostItemId == item.VkPostItemId);
 
-        public async Task DeletePostItemAsync(User user, int countItems)
+            currentPostItem.UpdateModel(item);
+        }
+
+        public async Task DeletePostItem(User user, VkPostItem item)
+        {
+            User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
+            currentUser.VkPostItems.Remove(item);
+        }
+
+        public async Task DeletePostItemsAsync(User user, int countItems)
         {
             User currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Name == user.Name);
             currentUser.VkPostItems.RemoveRange(0, countItems);

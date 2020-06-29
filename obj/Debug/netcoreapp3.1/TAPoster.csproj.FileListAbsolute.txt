@@ -97,3 +97,5 @@ D:\C#Projects\ASP.NET Core\TAPoster\bin\Debug\netcoreapp3.1\TAPoster.Views.pdb
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\TAPoster.genruntimeconfig.cache
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Shared\UserModelSummary.cshtml.g.cs
 D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\EditPostSetting.cshtml.g.cs
+D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\EditPostItem.cshtml.g.cs
+D:\C#Projects\ASP.NET Core\TAPoster\obj\Debug\netcoreapp3.1\Razor\Views\Post\AddPostItem.cshtml.g.cs
